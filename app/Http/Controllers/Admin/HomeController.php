@@ -96,14 +96,14 @@ class HomeController
         foreach ($drivers as $key => $d) {
             $team_driver_bolt_earnings = TvdeActivity::where([
                 'tvde_week_id' => $tvde_week_id,
-                'tvde_operator_id' => 2,
+                'tvde_operator_id' => 4,
                 'driver_code' => $d->bolt_name
             ])
                 ->get()->sum('earnings_two');
 
             $team_driver_uber_earnings = TvdeActivity::where([
                 'tvde_week_id' => $tvde_week_id,
-                'tvde_operator_id' => 1,
+                'tvde_operator_id' => 3,
                 'driver_code' => $d->uber_uuid
             ])
                 ->get()->sum('earnings_two');

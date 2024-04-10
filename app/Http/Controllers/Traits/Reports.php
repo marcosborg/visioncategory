@@ -51,7 +51,7 @@ trait Reports
         foreach ($drivers as $driver) {
             $uber_activities = TvdeActivity::where([
                 'company_id' => $company_id,
-                'tvde_operator_id' => 1,
+                'tvde_operator_id' => 3,
                 'tvde_week_id' => $tvde_week_id,
                 'driver_code' => $driver->uber_uuid
             ])
@@ -63,7 +63,7 @@ trait Reports
 
             $bolt_activities = TvdeActivity::where([
                 'company_id' => $company_id,
-                'tvde_operator_id' => 2,
+                'tvde_operator_id' => 4,
                 'tvde_week_id' => $tvde_week_id,
                 'driver_code' => $driver->bolt_name
             ])
@@ -271,7 +271,7 @@ trait Reports
 
         $bolt_activities = TvdeActivity::where([
             'tvde_week_id' => $tvde_week_id,
-            'tvde_operator_id' => 2,
+            'tvde_operator_id' => 4,
             'driver_code' => $driver->bolt_name,
             'company_id' => $company_id,
         ])
@@ -279,7 +279,7 @@ trait Reports
 
         $uber_activities = TvdeActivity::where([
             'tvde_week_id' => $tvde_week_id,
-            'tvde_operator_id' => 1,
+            'tvde_operator_id' => 3,
             'driver_code' => $driver->uber_uuid,
             'company_id' => $company_id,
         ])

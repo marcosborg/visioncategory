@@ -169,14 +169,14 @@ class FinancialStatementController extends Controller
         foreach ($drivers as $key => $d) {
             $team_driver_bolt_earnings = TvdeActivity::where([
                 'tvde_week_id' => $tvde_week_id,
-                'tvde_operator_id' => 2,
+                'tvde_operator_id' => 4,
                 'driver_code' => $d->bolt_name
             ])
                 ->get()->sum('earnings_two');
 
             $team_driver_uber_earnings = TvdeActivity::where([
                 'tvde_week_id' => $tvde_week_id,
-                'tvde_operator_id' => 1,
+                'tvde_operator_id' => 3,
                 'driver_code' => $d->uber_uuid
             ])
                 ->get()->sum('earnings_two');
@@ -286,7 +286,7 @@ class FinancialStatementController extends Controller
 
         $bolt_activities = TvdeActivity::where([
             'tvde_week_id' => $tvde_week_id,
-            'tvde_operator_id' => 2,
+            'tvde_operator_id' => 4,
             'driver_code' => $driver->bolt_name,
             'company_id' => $company_id,
         ])
@@ -294,7 +294,7 @@ class FinancialStatementController extends Controller
 
         $uber_activities = TvdeActivity::where([
             'tvde_week_id' => $tvde_week_id,
-            'tvde_operator_id' => 1,
+            'tvde_operator_id' => 3,
             'driver_code' => $driver->uber_uuid,
             'company_id' => $company_id,
         ])
@@ -442,14 +442,14 @@ class FinancialStatementController extends Controller
         foreach ($drivers as $key => $d) {
             $team_driver_bolt_earnings = TvdeActivity::where([
                 'tvde_week_id' => $tvde_week_id,
-                'tvde_operator_id' => 2,
+                'tvde_operator_id' => 4,
                 'driver_code' => $d->bolt_name
             ])
                 ->get()->sum('earnings_two');
 
             $team_driver_uber_earnings = TvdeActivity::where([
                 'tvde_week_id' => $tvde_week_id,
-                'tvde_operator_id' => 1,
+                'tvde_operator_id' => 3,
                 'driver_code' => $d->uber_uuid
             ])
                 ->get()->sum('earnings_two');
