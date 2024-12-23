@@ -1625,10 +1625,14 @@ header.header-solid.header-light {
 
 header.header-light .logo-1 {
     display: none;
+    max-width: 170px;
+    padding: 5px;
 }
 
 header.header-light .logo-2 {
     display: inline-block;
+    max-width: 170px;
+    padding: 5px;
 }
 
 /* topbar start here */
@@ -1642,7 +1646,7 @@ header.header-light .logo-2 {
 }
 
 #topbar.topbar-dark{
-    background:#111111;
+    background: #076799;
 }
 
 #topbar a {

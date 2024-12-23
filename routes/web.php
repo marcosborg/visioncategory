@@ -1,5 +1,7 @@
 <?php
 
+Route::get('website', 'WebsiteController@index');
+
 Route::get('/', function () {
     return view('welcome');
 });
