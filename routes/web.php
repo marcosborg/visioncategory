@@ -1,11 +1,7 @@
 <?php
 
-Route::get('website', 'WebsiteController@index');
+Route::get('/', 'WebsiteController@index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-//Route::get('/', 'Website\HomePageController@index');
 Route::prefix('tvde')->group(function () {
     Route::get('aluguer-de-viaturas', 'Website\CarsController@index');
     Route::get('trabalhar-com-viatura-propria', 'Website\OwnCarController@index');

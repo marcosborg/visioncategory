@@ -27,6 +27,14 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.heroBanner.fields.subtitle_helper') }}</span>
                         </div>
+                        <div class="form-group {{ $errors->has('text') ? 'has-error' : '' }}">
+                            <label for="text">{{ trans('cruds.heroBanner.fields.text') }}</label>
+                            <textarea class="form-control" name="text" id="text">{{ old('text') }}</textarea>
+                            @if($errors->has('text'))
+                                <span class="help-block" role="alert">{{ $errors->first('text') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.heroBanner.fields.text_helper') }}</span>
+                        </div>
                         <div class="form-group {{ $errors->has('button') ? 'has-error' : '' }}">
                             <label for="button">{{ trans('cruds.heroBanner.fields.button') }}</label>
                             <input class="form-control" type="text" name="button" id="button" value="{{ old('button', '') }}">
@@ -52,6 +60,15 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.heroBanner.fields.image_helper') }}</span>
                         </div>
+                        <div class="form-group {{ $errors->has('background') ? 'has-error' : '' }}">
+                            <label for="background">{{ trans('cruds.heroBanner.fields.background') }}</label>
+                            <div class="needsclick dropzone" id="background-dropzone">
+                            </div>
+                            @if($errors->has('background'))
+                                <span class="help-block" role="alert">{{ $errors->first('background') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.heroBanner.fields.background_helper') }}</span>
+                        </div>
                         <div class="form-group">
                             <button class="btn btn-danger" type="submit">
                                 {{ trans('global.save') }}
@@ -72,7 +89,7 @@
 <script>
     Dropzone.options.imageDropzone = {
     url: '{{ route('admin.hero-banners.storeMedia') }}',
-    maxFilesize: 5, // MB
+    maxFilesize: 2, // MB
     acceptedFiles: '.jpeg,.jpg,.png,.gif',
     maxFiles: 1,
     addRemoveLinks: true,
@@ -80,7 +97,7 @@
       'X-CSRF-TOKEN': "{{ csrf_token() }}"
     },
     params: {
-      size: 5,
+      size: 2,
       width: 4096,
       height: 4096
     },
@@ -102,6 +119,61 @@
       this.options.thumbnail.call(this, file, file.preview ?? file.preview_url)
       file.previewElement.classList.add('dz-complete')
       $('form').append('<input type="hidden" name="image" value="' + file.file_name + '">')
+      this.options.maxFiles = this.options.maxFiles - 1
+@endif
+    },
+    error: function (file, response) {
+        if ($.type(response) === 'string') {
+            var message = response //dropzone sends it's own error messages in string
+        } else {
+            var message = response.errors.file
+        }
+        file.previewElement.classList.add('dz-error')
+        _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
+        _results = []
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            node = _ref[_i]
+            _results.push(node.textContent = message)
+        }
+
+        return _results
+    }
+}
+
+</script>
+<script>
+    Dropzone.options.backgroundDropzone = {
+    url: '{{ route('admin.hero-banners.storeMedia') }}',
+    maxFilesize: 2, // MB
+    acceptedFiles: '.jpeg,.jpg,.png,.gif',
+    maxFiles: 1,
+    addRemoveLinks: true,
+    headers: {
+      'X-CSRF-TOKEN': "{{ csrf_token() }}"
+    },
+    params: {
+      size: 2,
+      width: 4096,
+      height: 4096
+    },
+    success: function (file, response) {
+      $('form').find('input[name="background"]').remove()
+      $('form').append('<input type="hidden" name="background" value="' + response.name + '">')
+    },
+    removedfile: function (file) {
+      file.previewElement.remove()
+      if (file.status !== 'error') {
+        $('form').find('input[name="background"]').remove()
+        this.options.maxFiles = this.options.maxFiles + 1
+      }
+    },
+    init: function () {
+@if(isset($heroBanner) && $heroBanner->background)
+      var file = {!! json_encode($heroBanner->background) !!}
+          this.options.addedfile.call(this, file)
+      this.options.thumbnail.call(this, file, file.preview ?? file.preview_url)
+      file.previewElement.classList.add('dz-complete')
+      $('form').append('<input type="hidden" name="background" value="' + file.file_name + '">')
       this.options.maxFiles = this.options.maxFiles - 1
 @endif
     },

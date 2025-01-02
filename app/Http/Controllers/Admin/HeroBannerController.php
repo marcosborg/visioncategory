@@ -41,6 +41,10 @@ class HeroBannerController extends Controller
             $heroBanner->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
         }
 
+        if ($request->input('background', false)) {
+            $heroBanner->addMedia(storage_path('tmp/uploads/' . basename($request->input('background'))))->toMediaCollection('background');
+        }
+
         if ($media = $request->input('ck-media', false)) {
             Media::whereIn('id', $media)->update(['model_id' => $heroBanner->id]);
         }
@@ -60,7 +64,7 @@ class HeroBannerController extends Controller
         $heroBanner->update($request->all());
 
         if ($request->input('image', false)) {
-            if (!$heroBanner->image || $request->input('image') !== $heroBanner->image->file_name) {
+            if (! $heroBanner->image || $request->input('image') !== $heroBanner->image->file_name) {
                 if ($heroBanner->image) {
                     $heroBanner->image->delete();
                 }
@@ -70,7 +74,18 @@ class HeroBannerController extends Controller
             $heroBanner->image->delete();
         }
 
-        return redirect("admin/hero-banners/1/edit")->with('status', 'Atualizado com sucesso');
+        if ($request->input('background', false)) {
+            if (! $heroBanner->background || $request->input('background') !== $heroBanner->background->file_name) {
+                if ($heroBanner->background) {
+                    $heroBanner->background->delete();
+                }
+                $heroBanner->addMedia(storage_path('tmp/uploads/' . basename($request->input('background'))))->toMediaCollection('background');
+            }
+        } elseif ($heroBanner->background) {
+            $heroBanner->background->delete();
+        }
+
+        return redirect()->route('admin.hero-banners.index');
     }
 
     public function show(HeroBanner $heroBanner)
@@ -91,7 +106,11 @@ class HeroBannerController extends Controller
 
     public function massDestroy(MassDestroyHeroBannerRequest $request)
     {
-        HeroBanner::whereIn('id', request('ids'))->delete();
+        $heroBanners = HeroBanner::find(request('ids'));
+
+        foreach ($heroBanners as $heroBanner) {
+            $heroBanner->delete();
+        }
 
         return response(null, Response::HTTP_NO_CONTENT);
     }

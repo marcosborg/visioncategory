@@ -34,6 +34,9 @@
                                         {{ trans('cruds.heroBanner.fields.subtitle') }}
                                     </th>
                                     <th>
+                                        {{ trans('cruds.heroBanner.fields.text') }}
+                                    </th>
+                                    <th>
                                         {{ trans('cruds.heroBanner.fields.button') }}
                                     </th>
                                     <th>
@@ -41,6 +44,9 @@
                                     </th>
                                     <th>
                                         {{ trans('cruds.heroBanner.fields.image') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.heroBanner.fields.background') }}
                                     </th>
                                     <th>
                                         &nbsp;
@@ -63,6 +69,9 @@
                                             {{ $heroBanner->subtitle ?? '' }}
                                         </td>
                                         <td>
+                                            {{ $heroBanner->text ?? '' }}
+                                        </td>
+                                        <td>
                                             {{ $heroBanner->button ?? '' }}
                                         </td>
                                         <td>
@@ -72,6 +81,13 @@
                                             @if($heroBanner->image)
                                                 <a href="{{ $heroBanner->image->getUrl() }}" target="_blank" style="display: inline-block">
                                                     <img src="{{ $heroBanner->image->getUrl('thumb') }}">
+                                                </a>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($heroBanner->background)
+                                                <a href="{{ $heroBanner->background->getUrl() }}" target="_blank" style="display: inline-block">
+                                                    <img src="{{ $heroBanner->background->getUrl('thumb') }}">
                                                 </a>
                                             @endif
                                         </td>

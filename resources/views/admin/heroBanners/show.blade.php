@@ -43,6 +43,14 @@
                                 </tr>
                                 <tr>
                                     <th>
+                                        {{ trans('cruds.heroBanner.fields.text') }}
+                                    </th>
+                                    <td>
+                                        {{ $heroBanner->text }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
                                         {{ trans('cruds.heroBanner.fields.button') }}
                                     </th>
                                     <td>
@@ -65,6 +73,18 @@
                                         @if($heroBanner->image)
                                             <a href="{{ $heroBanner->image->getUrl() }}" target="_blank" style="display: inline-block">
                                                 <img src="{{ $heroBanner->image->getUrl('thumb') }}">
+                                            </a>
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.heroBanner.fields.background') }}
+                                    </th>
+                                    <td>
+                                        @if($heroBanner->background)
+                                            <a href="{{ $heroBanner->background->getUrl() }}" target="_blank" style="display: inline-block">
+                                                <img src="{{ $heroBanner->background->getUrl('thumb') }}">
                                             </a>
                                         @endif
                                     </td>

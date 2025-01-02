@@ -20,6 +20,7 @@ class HeroBanner extends Model implements HasMedia
 
     protected $appends = [
         'image',
+        'background',
     ];
 
     protected $dates = [
@@ -31,6 +32,7 @@ class HeroBanner extends Model implements HasMedia
     protected $fillable = [
         'title',
         'subtitle',
+        'text',
         'button',
         'link',
         'created_at',
@@ -47,6 +49,18 @@ class HeroBanner extends Model implements HasMedia
     public function getImageAttribute()
     {
         $file = $this->getMedia('image')->last();
+        if ($file) {
+            $file->url       = $file->getUrl();
+            $file->thumbnail = $file->getUrl('thumb');
+            $file->preview   = $file->getUrl('preview');
+        }
+
+        return $file;
+    }
+
+    public function getBackgroundAttribute()
+    {
+        $file = $this->getMedia('background')->last();
         if ($file) {
             $file->url       = $file->getUrl();
             $file->thumbnail = $file->getUrl('thumb');
