@@ -18,10 +18,6 @@ Route::prefix('tvde')->group(function () {
     Route::get('consultadoria', 'Website\ConsultingController@index');
 });
 
-Route::prefix('loja')->group(function () {
-    Route::get('acessorios', 'Website\ProductsController@index');
-});
-
 Route::get('legal/{id}/{slug}', 'Website\LegalController@index');
 
 Route::get('pagina/{id}/{slug}', 'Website\PagesController@index');
