@@ -817,84 +817,6 @@
                         </ul>
                     </li>
                     @endcan
-                    @can('menu_courier_access')
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa-fw fas fa-bicycle">
-
-                            </i>
-                            <span>{{ trans('cruds.menuCourier.title') }}</span>
-                            <span class="pull-right-container"><i class="fa fa-fw fa-angle-left pull-right"></i></span>
-                        </a>
-                        <ul class="treeview-menu">
-                            @can('courier_access')
-                            <li class="{{ request()->is("admin/couriers") || request()->is("admin/couriers/*") ?
-                                "active" : ""
-                                }}">
-                                <a href="{{ route("admin.couriers.index") }}">
-                                    <i class="fa-fw fas fa-motorcycle">
-
-                                    </i>
-                                    <span>{{ trans('cruds.courier.title') }}</span>
-
-                                </a>
-                            </li>
-                            @endcan
-                            @can('courier_form_access')
-                            <li class="{{ request()->is("admin/courier-forms") || request()->
-                                is("admin/courier-forms/*") ?
-                                "active" : "" }}">
-                                <a href="{{ route("admin.courier-forms.index") }}">
-                                    <i class="fa-fw fas fa-address-book">
-
-                                    </i>
-                                    <span>{{ trans('cruds.courierForm.title') }}</span>
-
-                                </a>
-                            </li>
-                            @endcan
-                        </ul>
-                    </li>
-                    @endcan
-                    @can('menu_training_access')
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa-fw fas fa-chalkboard-teacher">
-
-                            </i>
-                            <span>{{ trans('cruds.menuTraining.title') }}</span>
-                            <span class="pull-right-container"><i class="fa fa-fw fa-angle-left pull-right"></i></span>
-                        </a>
-                        <ul class="treeview-menu">
-                            @can('training_access')
-                            <li class="{{ request()->is("admin/trainings") || request()->is("admin/trainings/*") ?
-                                "active" :
-                                "" }}">
-                                <a href="{{ route("admin.trainings.index") }}">
-                                    <i class="fa-fw fas fa-chalkboard-teacher">
-
-                                    </i>
-                                    <span>{{ trans('cruds.training.title') }}</span>
-
-                                </a>
-                            </li>
-                            @endcan
-                            @can('training_form_access')
-                            <li class="{{ request()->is("admin/training-forms") || request()->
-                                is("admin/training-forms/*") ?
-                                "active" : "" }}">
-                                <a href="{{ route("admin.training-forms.index") }}">
-                                    <i class="fa-fw fas fa-address-book">
-
-                                    </i>
-                                    <span>{{ trans('cruds.trainingForm.title') }}</span>
-
-                                </a>
-                            </li>
-                            @endcan
-                        </ul>
-                    </li>
-                    @endcan
                     @can('menu_tranfer_tour_access')
                     <li class="treeview">
                         <a href="#">
@@ -934,46 +856,6 @@
                         </ul>
                     </li>
                     @endcan
-                    @can('menu_consulting_access')
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa-fw fas fa-user-tie">
-
-                            </i>
-                            <span>{{ trans('cruds.menuConsulting.title') }}</span>
-                            <span class="pull-right-container"><i class="fa fa-fw fa-angle-left pull-right"></i></span>
-                        </a>
-                        <ul class="treeview-menu">
-                            @can('consulting_access')
-                            <li class="{{ request()->is("admin/consultings") || request()->is("admin/consultings/*") ?
-                                "active"
-                                : "" }}">
-                                <a href="{{ route("admin.consultings.index") }}">
-                                    <i class="fa-fw fas fa-user-tie">
-
-                                    </i>
-                                    <span>{{ trans('cruds.consulting.title') }}</span>
-
-                                </a>
-                            </li>
-                            @endcan
-                            @can('consulting_form_access')
-                            <li class="{{ request()->is("admin/consulting-forms") || request()->
-                                is("admin/consulting-forms/*")
-                                ? "active" : "" }}">
-                                <a href="{{ route("admin.consulting-forms.index") }}">
-                                    <i class="fa-fw fas fa-address-book">
-
-                                    </i>
-                                    <span>{{ trans('cruds.consultingForm.title') }}</span>
-
-                                </a>
-                            </li>
-                            @endcan
-
-                        </ul>
-                    </li>
-                    @endcan
                     @can('legal_access')
                     <li class="{{ request()->is("admin/legals") || request()->is("admin/legals/*") ? "active" : "" }}">
                         <a href="{{ route("admin.legals.index") }}">
@@ -986,67 +868,6 @@
                     </li>
                     @endcan
                 </ul>
-            </li>
-            @endcan
-            @can('contracts_menu_access')
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa-fw fas fa-file-signature">
-
-                    </i>
-                    <span>{{ trans('cruds.contractsMenu.title') }}</span>
-                    <span class="pull-right-container"><i class="fa fa-fw fa-angle-left pull-right"></i></span>
-                </a>
-                <ul class="treeview-menu">
-                    @can('statement_of_responsibility_access')
-                    <li class="{{ request()->is("admin/statement-of-responsibilities") || request()->
-                        is("admin/statement-of-responsibilities/*") ? "active" : "" }}">
-                        <a href="{{ route("admin.statement-of-responsibilities.index") }}">
-                            <i class="fa-fw fas fa-signature">
-
-                            </i>
-                            <span>{{ trans('cruds.statementOfResponsibility.title') }}</span>
-
-                        </a>
-                    </li>
-                    @endcan
-                    @can('contract_access')
-                    <li class="{{ request()->is("admin/contracts") || request()->is("admin/contracts/*") ? "active" :
-                        "" }}">
-                        <a href="{{ route("admin.contracts.index") }}">
-                            <i class="fa-fw fas fa-signature">
-
-                            </i>
-                            <span>{{ trans('cruds.contract.title') }}</span>
-
-                        </a>
-                    </li>
-                    @endcan
-                </ul>
-            </li>
-            @endcan
-            @can('admin_statement_responsibility_access')
-            <li class="{{ request()->is("admin/admin-statement-responsibilities") || request()->
-                is("admin/admin-statement-responsibilities/*") ? "active" : "" }}">
-                <a href="{{ route("admin.admin-statement-responsibilities.index") }}">
-                    <i class="fa-fw fas fa-signature">
-
-                    </i>
-                    <span>{{ trans('cruds.adminStatementResponsibility.title') }}</span>
-
-                </a>
-            </li>
-            @endcan
-            @can('admin_contract_access')
-            <li class="{{ request()->is("admin/admin-contracts") || request()->is("admin/admin-contracts/*") ? "active"
-                : "" }}">
-                <a href="{{ route("admin.admin-contracts.index") }}">
-                    <i class="fa-fw fas fa-signature">
-
-                    </i>
-                    <span>{{ trans('cruds.adminContract.title') }}</span>
-
-                </a>
             </li>
             @endcan
             @can('vehicle_access')

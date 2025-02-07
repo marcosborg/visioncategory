@@ -88,26 +88,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('statuses/destroy', 'StatusController@massDestroy')->name('statuses.massDestroy');
     Route::resource('statuses', 'StatusController');
 
-    // Courier
-    Route::delete('couriers/destroy', 'CourierController@massDestroy')->name('couriers.massDestroy');
-    Route::post('couriers/media', 'CourierController@storeMedia')->name('couriers.storeMedia');
-    Route::post('couriers/ckmedia', 'CourierController@storeCKEditorImages')->name('couriers.storeCKEditorImages');
-    Route::resource('couriers', 'CourierController');
-
-    // Courier Form
-    Route::delete('courier-forms/destroy', 'CourierFormController@massDestroy')->name('courier-forms.massDestroy');
-    Route::resource('courier-forms', 'CourierFormController');
-
-    // Training
-    Route::delete('trainings/destroy', 'TrainingController@massDestroy')->name('trainings.massDestroy');
-    Route::post('trainings/media', 'TrainingController@storeMedia')->name('trainings.storeMedia');
-    Route::post('trainings/ckmedia', 'TrainingController@storeCKEditorImages')->name('trainings.storeCKEditorImages');
-    Route::resource('trainings', 'TrainingController');
-
-    // Training Form
-    Route::delete('training-forms/destroy', 'TrainingFormController@massDestroy')->name('training-forms.massDestroy');
-    Route::resource('training-forms', 'TrainingFormController');
-
     // Product Category
     Route::delete('product-categories/destroy', 'ProductCategoryController@massDestroy')->name('product-categories.massDestroy');
     Route::post('product-categories/media', 'ProductCategoryController@storeMedia')->name('product-categories.storeMedia');
@@ -127,16 +107,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Product Form
     Route::delete('product-forms/destroy', 'ProductFormController@massDestroy')->name('product-forms.massDestroy');
     Route::resource('product-forms', 'ProductFormController');
-
-    // Consulting
-    Route::delete('consultings/destroy', 'ConsultingController@massDestroy')->name('consultings.massDestroy');
-    Route::post('consultings/media', 'ConsultingController@storeMedia')->name('consultings.storeMedia');
-    Route::post('consultings/ckmedia', 'ConsultingController@storeCKEditorImages')->name('consultings.storeCKEditorImages');
-    Route::resource('consultings', 'ConsultingController');
-
-    // Consulting Form
-    Route::delete('consulting-forms/destroy', 'ConsultingFormController@massDestroy')->name('consulting-forms.massDestroy');
-    Route::resource('consulting-forms', 'ConsultingFormController');
 
     // Newsletter
     Route::delete('newsletters/destroy', 'NewsletterController@massDestroy')->name('newsletters.massDestroy');
@@ -266,20 +236,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('messenger/{topic}', 'MessengerController@destroyTopic')->name('messenger.destroyTopic');
     Route::post('messenger/{topic}/reply', 'MessengerController@replyToTopic')->name('messenger.reply');
     Route::get('messenger/{topic}/reply', 'MessengerController@showReply')->name('messenger.showReply');
-
-    // Statement Of Responsibility
-    Route::prefix('statement-of-responsibilities')->group(function () {
-        Route::get('/', 'StatementOfResponsibilityController@index')->name('statement-of-responsibilities.index');
-        Route::get('pdf/{download?}', 'StatementOfResponsibilityController@pdf');
-        Route::get('signContract', 'StatementOfResponsibilityController@signContract');
-    });
-
-    // Contract
-    Route::prefix('contracts')->group(function () {
-        Route::get('/', 'ContractController@index')->name('contracts.index');
-        Route::get('pdf/{download?}', 'ContractController@pdf');
-        Route::get('signContract', 'ContractController@signContract');
-    });
 
     // Admin Statement Responsibility
     Route::delete('admin-statement-responsibilities/destroy', 'AdminStatementResponsibilityController@massDestroy')->name('admin-statement-responsibilities.massDestroy');
