@@ -74,18 +74,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('user-alerts/read', 'UserAlertsController@read');
     Route::resource('user-alerts', 'UserAlertsController', ['except' => ['edit', 'update']]);
 
-    // Faq Category
-    Route::delete('faq-categories/destroy', 'FaqCategoryController@massDestroy')->name('faq-categories.massDestroy');
-    Route::post('faq-categories/parse-csv-import', 'FaqCategoryController@parseCsvImport')->name('faq-categories.parseCsvImport');
-    Route::post('faq-categories/process-csv-import', 'FaqCategoryController@processCsvImport')->name('faq-categories.processCsvImport');
-    Route::resource('faq-categories', 'FaqCategoryController');
-
-    // Faq Question
-    Route::delete('faq-questions/destroy', 'FaqQuestionController@massDestroy')->name('faq-questions.massDestroy');
-    Route::post('faq-questions/parse-csv-import', 'FaqQuestionController@parseCsvImport')->name('faq-questions.parseCsvImport');
-    Route::post('faq-questions/process-csv-import', 'FaqQuestionController@processCsvImport')->name('faq-questions.processCsvImport');
-    Route::resource('faq-questions', 'FaqQuestionController');
-
     // Cars
     Route::delete('cars/destroy', 'CarsController@massDestroy')->name('cars.massDestroy');
     Route::post('cars/media', 'CarsController@storeMedia')->name('cars.storeMedia');
@@ -103,20 +91,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('hero-banners/media', 'HeroBannerController@storeMedia')->name('hero-banners.storeMedia');
     Route::post('hero-banners/ckmedia', 'HeroBannerController@storeCKEditorImages')->name('hero-banners.storeCKEditorImages');
     Route::resource('hero-banners', 'HeroBannerController');
-
-    // Home Info
-    Route::delete('home-infos/destroy', 'HomeInfoController@massDestroy')->name('home-infos.massDestroy');
-    Route::post('home-infos/media', 'HomeInfoController@storeMedia')->name('home-infos.storeMedia');
-    Route::post('home-infos/ckmedia', 'HomeInfoController@storeCKEditorImages')->name('home-infos.storeCKEditorImages');
-    Route::resource('home-infos', 'HomeInfoController');
-
-    // Activities
-    Route::delete('activities/destroy', 'ActivitiesController@massDestroy')->name('activities.massDestroy');
-    Route::resource('activities', 'ActivitiesController');
-
-    // Testimonials
-    Route::delete('testimonials/destroy', 'TestimonialsController@massDestroy')->name('testimonials.massDestroy');
-    Route::resource('testimonials', 'TestimonialsController');
 
     // Own Car
     Route::delete('own-cars/destroy', 'OwnCarController@massDestroy')->name('own-cars.massDestroy');
