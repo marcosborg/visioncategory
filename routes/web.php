@@ -2,7 +2,6 @@
 
 Route::get('/', 'WebsiteController@index');
 
-
 Route::prefix('tvde')->group(function () {
     Route::get('aluguer-de-viaturas', 'Website\CarsController@index');
     Route::get('trabalhar-com-viatura-propria', 'Website\OwnCarController@index');
