@@ -1,6 +1,7 @@
 @extends('layouts.website')
 
 @section('content')
+
 <x-website.hero_banner />
 
 <x-website.cars_component />
