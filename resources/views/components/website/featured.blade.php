@@ -1,5 +1,5 @@
 <section id="section-img-with-tab" data-bgcolor="#f8f8f8">
-    @foreach ($pages as $page)
+    @foreach (\App\Models\Page::where('featured', true)->get() as $page)
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5 offset-lg-7">
