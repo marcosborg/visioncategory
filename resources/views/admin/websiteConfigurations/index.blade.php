@@ -43,6 +43,15 @@
                                         {{ trans('cruds.websiteConfiguration.fields.logo') }}
                                     </th>
                                     <th>
+                                        {{ trans('cruds.websiteConfiguration.fields.facebook') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.websiteConfiguration.fields.instagram') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.websiteConfiguration.fields.whatsapp') }}
+                                    </th>
+                                    <th>
                                         &nbsp;
                                     </th>
                                 </tr>
@@ -74,6 +83,15 @@
                                                     <img src="{{ $websiteConfiguration->logo->getUrl('thumb') }}">
                                                 </a>
                                             @endif
+                                        </td>
+                                        <td>
+                                            {{ $websiteConfiguration->facebook ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $websiteConfiguration->instagram ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $websiteConfiguration->whatsapp ?? '' }}
                                         </td>
                                         <td>
                                             @can('website_configuration_show')

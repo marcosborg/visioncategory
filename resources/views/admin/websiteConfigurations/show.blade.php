@@ -69,6 +69,30 @@
                                         @endif
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.websiteConfiguration.fields.facebook') }}
+                                    </th>
+                                    <td>
+                                        {{ $websiteConfiguration->facebook }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.websiteConfiguration.fields.instagram') }}
+                                    </th>
+                                    <td>
+                                        {{ $websiteConfiguration->instagram }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.websiteConfiguration.fields.whatsapp') }}
+                                    </th>
+                                    <td>
+                                        {{ $websiteConfiguration->whatsapp }}
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <div class="form-group">

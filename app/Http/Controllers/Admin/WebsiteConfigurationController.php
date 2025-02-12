@@ -70,7 +70,7 @@ class WebsiteConfigurationController extends Controller
             $websiteConfiguration->logo->delete();
         }
 
-        return redirect()->route('admin.website-configurations.index');
+        return redirect()->back();
     }
 
     public function show(WebsiteConfiguration $websiteConfiguration)

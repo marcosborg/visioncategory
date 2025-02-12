@@ -1631,6 +1631,12 @@ return [
             'updated_at_helper' => ' ',
             'deleted_at'        => 'Deleted at',
             'deleted_at_helper' => ' ',
+            'facebook'          => 'Facebook',
+            'facebook_helper'   => ' ',
+            'instagram'         => 'Instagram',
+            'instagram_helper'  => ' ',
+            'whatsapp'          => 'Whatsapp',
+            'whatsapp_helper'   => ' ',
         ],
     ],
 

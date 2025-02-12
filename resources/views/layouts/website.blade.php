@@ -7,7 +7,6 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Vision Category - Gestores de frota TVDE" name="description">
-    <meta content="" name="keywords">
     <meta content="Netlook" name="author">
     <!-- CSS Files
     ================================================== -->
@@ -33,26 +32,7 @@
 
         <!-- header begin -->
         <header class="header-light scroll-light has-topbar">
-            <div id="topbar" class="topbar-dark text-light">
-                <div class="container">
-                    <div class="topbar-left xs-hide">
-                        <div class="topbar-widget">
-                            <div class="topbar-widget"><a href="#"><i class="fa fa-phone"></i>+351 000 000 000</a></div>
-                            <div class="topbar-widget"><a href="#"><i class="fa fa-envelope"></i>info@visioncategory.pt</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="topbar-right">
-                        <div class="social-icons">
-                            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-whatsapp fa-lg"></i></a>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
+            <x-website.topbar />
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">

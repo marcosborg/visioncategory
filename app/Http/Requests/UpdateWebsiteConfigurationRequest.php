@@ -36,6 +36,18 @@ class UpdateWebsiteConfigurationRequest extends FormRequest
             'logo' => [
                 'required',
             ],
+            'facebook' => [
+                'string',
+                'nullable',
+            ],
+            'instagram' => [
+                'string',
+                'nullable',
+            ],
+            'whatsapp' => [
+                'string',
+                'nullable',
+            ],
         ];
     }
 }

@@ -53,6 +53,30 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.websiteConfiguration.fields.logo_helper') }}</span>
                         </div>
+                        <div class="form-group {{ $errors->has('facebook') ? 'has-error' : '' }}">
+                            <label for="facebook">{{ trans('cruds.websiteConfiguration.fields.facebook') }}</label>
+                            <input class="form-control" type="text" name="facebook" id="facebook" value="{{ old('facebook', $websiteConfiguration->facebook) }}">
+                            @if($errors->has('facebook'))
+                                <span class="help-block" role="alert">{{ $errors->first('facebook') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.websiteConfiguration.fields.facebook_helper') }}</span>
+                        </div>
+                        <div class="form-group {{ $errors->has('instagram') ? 'has-error' : '' }}">
+                            <label for="instagram">{{ trans('cruds.websiteConfiguration.fields.instagram') }}</label>
+                            <input class="form-control" type="text" name="instagram" id="instagram" value="{{ old('instagram', $websiteConfiguration->instagram) }}">
+                            @if($errors->has('instagram'))
+                                <span class="help-block" role="alert">{{ $errors->first('instagram') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.websiteConfiguration.fields.instagram_helper') }}</span>
+                        </div>
+                        <div class="form-group {{ $errors->has('whatsapp') ? 'has-error' : '' }}">
+                            <label for="whatsapp">{{ trans('cruds.websiteConfiguration.fields.whatsapp') }}</label>
+                            <input class="form-control" type="text" name="whatsapp" id="whatsapp" value="{{ old('whatsapp', $websiteConfiguration->whatsapp) }}">
+                            @if($errors->has('whatsapp'))
+                                <span class="help-block" role="alert">{{ $errors->first('whatsapp') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.websiteConfiguration.fields.whatsapp_helper') }}</span>
+                        </div>
                         <div class="form-group">
                             <button class="btn btn-danger" type="submit">
                                 {{ trans('global.save') }}

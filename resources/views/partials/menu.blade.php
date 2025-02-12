@@ -549,7 +549,7 @@
                 <ul class="treeview-menu">
                     @can('website_configuration_access')
                             <li class="{{ request()->is("admin/website-configurations") || request()->is("admin/website-configurations/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.website-configurations.index") }}">
+                                <a href="/admin/website-configurations/1/edit">
                                     <i class="fa-fw fas fa-cogs"></i>
                                     <span>{{ trans('cruds.websiteConfiguration.title') }}</span>
                                 </a>
