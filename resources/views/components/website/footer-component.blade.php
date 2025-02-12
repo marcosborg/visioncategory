@@ -1,3 +1,10 @@
+@php
+$website_configuration = \App\Models\WebsiteConfiguration::find(1);
+$pages = \App\Models\Page::all();
+$featured = \App\Models\Page::where('featured', true)->first();
+$legals = \App\Models\Legal::all();
+@endphp
+
 <footer class="text-light">
     <div class="container">
         <div class="row g-custom-x">
@@ -58,7 +65,7 @@
                         </div>
                         <ul class="menu-simple">
                             @foreach ($legals as $legal)
-                            <li><a href="/legal/{{ $legal->id }}/{{ Str::slug($legal->title) }}">{{ $legal->title }}</a></li>    
+                            <li><a href="/legal/{{ $legal->id }}/{{ Str::slug($legal->title) }}">{{ $legal->title }}</a></li>
                             @endforeach
                         </ul>
                     </div>
