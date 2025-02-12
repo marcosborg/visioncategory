@@ -389,6 +389,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('testimonials/ckmedia', 'TestimonialController@storeCKEditorImages')->name('testimonials.storeCKEditorImages');
     Route::resource('testimonials', 'TestimonialController');
 
+    // Website Configuration
+    Route::delete('website-configurations/destroy', 'WebsiteConfigurationController@massDestroy')->name('website-configurations.massDestroy');
+    Route::post('website-configurations/media', 'WebsiteConfigurationController@storeMedia')->name('website-configurations.storeMedia');
+    Route::post('website-configurations/ckmedia', 'WebsiteConfigurationController@storeCKEditorImages')->name('website-configurations.storeCKEditorImages');
+    Route::resource('website-configurations', 'WebsiteConfigurationController');
+
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

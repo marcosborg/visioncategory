@@ -547,6 +547,14 @@
                     <span class="pull-right-container"><i class="fa fa-fw fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
+                    @can('website_configuration_access')
+                            <li class="{{ request()->is("admin/website-configurations") || request()->is("admin/website-configurations/*") ? "active" : "" }}">
+                                <a href="{{ route("admin.website-configurations.index") }}">
+                                    <i class="fa-fw fas fa-cogs"></i>
+                                    <span>{{ trans('cruds.websiteConfiguration.title') }}</span>
+                                </a>
+                            </li>
+                    @endcan
                     @can('home_page_access')
                     <li class="treeview">
                         <a href="#">
