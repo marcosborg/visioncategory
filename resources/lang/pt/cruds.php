@@ -1587,5 +1587,27 @@ return [
             'deleted_at_helper' => ' ',
         ],
     ],
+    'testimonial' => [
+        'title'          => 'Testimonial',
+        'title_singular' => 'Testimonial',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => ' ',
+            'title'             => 'Title',
+            'title_helper'      => ' ',
+            'text'              => 'Text',
+            'text_helper'       => ' ',
+            'name'              => 'Name',
+            'name_helper'       => ' ',
+            'photo'             => 'Photo',
+            'photo_helper'      => ' ',
+            'created_at'        => 'Created at',
+            'created_at_helper' => ' ',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => ' ',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => ' ',
+        ],
+    ],
 
 ];

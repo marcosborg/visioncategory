@@ -66,16 +66,16 @@
                     </li>
                     @endcan
                     @can('company_invoice_access')
-                            <li class="{{ request()->is("admin/company-invoices") || request()->is("admin/company-invoices/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.company-invoices.index") }}">
-                                    <i class="fa-fw fas fa-building">
+                    <li class="{{ request()->is("admin/company-invoices") || request()->is("admin/company-invoices/*") ? "active" : "" }}">
+                        <a href="{{ route("admin.company-invoices.index") }}">
+                            <i class="fa-fw fas fa-building">
 
-                                    </i>
-                                    <span>{{ trans('cruds.companyInvoice.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.companyInvoice.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
+                        </a>
+                    </li>
+                    @endcan
                 </ul>
             </li>
             @endcan
@@ -328,16 +328,16 @@
                     </li>
                     @endcan
                     @can('toll_payment_access')
-                            <li class="{{ request()->is("admin/toll-payments") || request()->is("admin/toll-payments/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.toll-payments.index") }}">
-                                    <i class="fa-fw fas fa-road">
+                    <li class="{{ request()->is("admin/toll-payments") || request()->is("admin/toll-payments/*") ? "active" : "" }}">
+                        <a href="{{ route("admin.toll-payments.index") }}">
+                            <i class="fa-fw fas fa-road">
 
-                                    </i>
-                                    <span>{{ trans('cruds.tollPayment.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.tollPayment.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
+                        </a>
+                    </li>
+                    @endcan
                     @can('adjustment_access')
                     <li class="{{ request()->is("admin/adjustments") || request()->is("admin/adjustments/*") ? "active"
                         : "" }}">
@@ -351,16 +351,16 @@
                     </li>
                     @endcan
                     @can('team_access')
-                            <li class="{{ request()->is("admin/teams") || request()->is("admin/teams/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.teams.index") }}">
-                                    <i class="fa-fw fas fa-users">
+                    <li class="{{ request()->is("admin/teams") || request()->is("admin/teams/*") ? "active" : "" }}">
+                        <a href="{{ route("admin.teams.index") }}">
+                            <i class="fa-fw fas fa-users">
 
-                                    </i>
-                                    <span>{{ trans('cruds.team.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.team.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
+                        </a>
+                    </li>
+                    @endcan
                 </ul>
             </li>
             @endcan
@@ -377,105 +377,105 @@
             </li>
             @endcan
             @can('company_expenses_menu_access')
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa-fw fas fa-building">
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa-fw fas fa-building">
 
-                        </i>
-                        <span>{{ trans('cruds.companyExpensesMenu.title') }}</span>
-                        <span class="pull-right-container"><i class="fa fa-fw fa-angle-left pull-right"></i></span>
-                    </a>
-                    <ul class="treeview-menu">
-                        @can('consultancy_access')
-                            <li class="{{ request()->is("admin/consultancies") || request()->is("admin/consultancies/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.consultancies.index") }}">
-                                    <i class="fa-fw fas fa-chart-line">
+                    </i>
+                    <span>{{ trans('cruds.companyExpensesMenu.title') }}</span>
+                    <span class="pull-right-container"><i class="fa fa-fw fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu">
+                    @can('consultancy_access')
+                    <li class="{{ request()->is("admin/consultancies") || request()->is("admin/consultancies/*") ? "active" : "" }}">
+                        <a href="{{ route("admin.consultancies.index") }}">
+                            <i class="fa-fw fas fa-chart-line">
 
-                                    </i>
-                                    <span>{{ trans('cruds.consultancy.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.consultancy.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
-                        @can('company_expense_access')
-                            <li class="{{ request()->is("admin/company-expenses") || request()->is("admin/company-expenses/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.company-expenses.index") }}">
-                                    <i class="fa-fw fas fa-euro-sign">
+                        </a>
+                    </li>
+                    @endcan
+                    @can('company_expense_access')
+                    <li class="{{ request()->is("admin/company-expenses") || request()->is("admin/company-expenses/*") ? "active" : "" }}">
+                        <a href="{{ route("admin.company-expenses.index") }}">
+                            <i class="fa-fw fas fa-euro-sign">
 
-                                    </i>
-                                    <span>{{ trans('cruds.companyExpense.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.companyExpense.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
-                        @can('company_park_access')
-                            <li class="{{ request()->is("admin/company-parks") || request()->is("admin/company-parks/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.company-parks.index") }}">
-                                    <i class="fa-fw fas fa-parking">
+                        </a>
+                    </li>
+                    @endcan
+                    @can('company_park_access')
+                    <li class="{{ request()->is("admin/company-parks") || request()->is("admin/company-parks/*") ? "active" : "" }}">
+                        <a href="{{ route("admin.company-parks.index") }}">
+                            <i class="fa-fw fas fa-parking">
 
-                                    </i>
-                                    <span>{{ trans('cruds.companyPark.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.companyPark.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
-                        @can('weekly_expense_report_access')
-                            <li class="{{ request()->is("admin/weekly-expense-reports") || request()->is("admin/weekly-expense-reports/*") ? "active" : "" }}">
-                                <a href="/admin/weekly-expense-reports">
-                                    <i class="fa-fw fas fa-file-pdf">
+                        </a>
+                    </li>
+                    @endcan
+                    @can('weekly_expense_report_access')
+                    <li class="{{ request()->is("admin/weekly-expense-reports") || request()->is("admin/weekly-expense-reports/*") ? "active" : "" }}">
+                        <a href="/admin/weekly-expense-reports">
+                            <i class="fa-fw fas fa-file-pdf">
 
-                                    </i>
-                                    <span>{{ trans('cruds.weeklyExpenseReport.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.weeklyExpenseReport.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
-                        @can('company_report_access')
-                            <li class="{{ request()->is("admin/company-reports") || request()->is("admin/company-reports/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.company-reports.index") }}">
-                                    <i class="fa-fw fas fa-file-contract">
+                        </a>
+                    </li>
+                    @endcan
+                    @can('company_report_access')
+                    <li class="{{ request()->is("admin/company-reports") || request()->is("admin/company-reports/*") ? "active" : "" }}">
+                        <a href="{{ route("admin.company-reports.index") }}">
+                            <i class="fa-fw fas fa-file-contract">
 
-                                    </i>
-                                    <span>{{ trans('cruds.companyReport.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.companyReport.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
-                        @can('current_account_access')
-                            <li class="{{ request()->is("admin/current-accounts") || request()->is("admin/current-accounts/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.current-accounts.index") }}">
-                                    <i class="fa-fw fas fa-table">
+                        </a>
+                    </li>
+                    @endcan
+                    @can('current_account_access')
+                    <li class="{{ request()->is("admin/current-accounts") || request()->is("admin/current-accounts/*") ? "active" : "" }}">
+                        <a href="{{ route("admin.current-accounts.index") }}">
+                            <i class="fa-fw fas fa-table">
 
-                                    </i>
-                                    <span>{{ trans('cruds.currentAccount.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.currentAccount.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
-                        @can('drivers_balance_access')
-                            <li class="{{ request()->is("admin/drivers-balances") || request()->is("admin/drivers-balances/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.drivers-balances.index") }}">
-                                    <i class="fa-fw fas fa-hand-holding-usd">
+                        </a>
+                    </li>
+                    @endcan
+                    @can('drivers_balance_access')
+                    <li class="{{ request()->is("admin/drivers-balances") || request()->is("admin/drivers-balances/*") ? "active" : "" }}">
+                        <a href="{{ route("admin.drivers-balances.index") }}">
+                            <i class="fa-fw fas fa-hand-holding-usd">
 
-                                    </i>
-                                    <span>{{ trans('cruds.driversBalance.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.driversBalance.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
-                        @can('company_data_access')
-                            <li class="{{ request()->is("admin/company-datas") || request()->is("admin/company-datas/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.company-datas.index") }}">
-                                    <i class="fa-fw fas fa-database">
+                        </a>
+                    </li>
+                    @endcan
+                    @can('company_data_access')
+                    <li class="{{ request()->is("admin/company-datas") || request()->is("admin/company-datas/*") ? "active" : "" }}">
+                        <a href="{{ route("admin.company-datas.index") }}">
+                            <i class="fa-fw fas fa-database">
 
-                                    </i>
-                                    <span>{{ trans('cruds.companyData.title') }}</span>
+                            </i>
+                            <span>{{ trans('cruds.companyData.title') }}</span>
 
-                                </a>
-                            </li>
-                        @endcan
-                    </ul>
-                </li>
+                        </a>
+                    </li>
+                    @endcan
+                </ul>
+            </li>
             @endcan
             @can('my_document_access')
             <li class="{{ request()->is("admin/my-documents") || request()->is("admin/my-documents/*") ? "active" : ""
@@ -579,7 +579,18 @@
 
                                 </a>
                             </li>
-                        @endcan
+                            @endcan
+                            @can('testimonial_access')
+                            <li class="{{ request()->is("admin/testimonials") || request()->is("admin/testimonials/*") ? "active" : "" }}">
+                                <a href="{{ route("admin.testimonials.index") }}">
+                                    <i class="fa-fw far fa-comment-dots">
+
+                                    </i>
+                                    <span>{{ trans('cruds.testimonial.title') }}</span>
+
+                                </a>
+                            </li>
+                            @endcan
                         </ul>
                     </li>
                     @endcan
@@ -714,8 +725,7 @@
 
                                     </i>
                                     <span>{{ trans('cruds.standItem.title') }}</span>
-                                    <span class="pull-right-container"><i
-                                            class="fa fa-fw fa-angle-left pull-right"></i></span>
+                                    <span class="pull-right-container"><i class="fa fa-fw fa-angle-left pull-right"></i></span>
                                 </a>
                                 <ul class="treeview-menu">
                                     @can('fuel_access')
