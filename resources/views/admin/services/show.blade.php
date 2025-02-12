@@ -6,12 +6,12 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('global.show') }} {{ trans('cruds.page.title') }}
+                    {{ trans('global.show') }} {{ trans('cruds.service.title') }}
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
                         <div class="form-group">
-                            <a class="btn btn-default" href="{{ route('admin.pages.index') }}">
+                            <a class="btn btn-default" href="{{ route('admin.services.index') }}">
                                 {{ trans('global.back_to_list') }}
                             </a>
                         </div>
@@ -19,60 +19,48 @@
                             <tbody>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.page.fields.id') }}
+                                        {{ trans('cruds.service.fields.id') }}
                                     </th>
                                     <td>
-                                        {{ $page->id }}
+                                        {{ $service->id }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.page.fields.title') }}
+                                        {{ trans('cruds.service.fields.title') }}
                                     </th>
                                     <td>
-                                        {{ $page->title }}
+                                        {{ $service->title }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.page.fields.description') }}
+                                        {{ trans('cruds.service.fields.text') }}
                                     </th>
                                     <td>
-                                        {{ $page->description }}
+                                        {{ $service->text }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.page.fields.image') }}
+                                        {{ trans('cruds.service.fields.icon') }}
                                     </th>
                                     <td>
-                                        @if($page->image)
-                                            <a href="{{ $page->image->getUrl() }}" target="_blank" style="display: inline-block">
-                                                <img src="{{ $page->image->getUrl('thumb') }}">
-                                            </a>
-                                        @endif
+                                        {{ $service->icon }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.page.fields.text') }}
+                                        {{ trans('cruds.service.fields.link') }}
                                     </th>
                                     <td>
-                                        {!! $page->text !!}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        {{ trans('cruds.page.fields.featured') }}
-                                    </th>
-                                    <td>
-                                        <input type="checkbox" disabled="disabled" {{ $page->featured ? 'checked' : '' }}>
+                                        {{ $service->link }}
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                         <div class="form-group">
-                            <a class="btn btn-default" href="{{ route('admin.pages.index') }}">
+                            <a class="btn btn-default" href="{{ route('admin.services.index') }}">
                                 {{ trans('global.back_to_list') }}
                             </a>
                         </div>

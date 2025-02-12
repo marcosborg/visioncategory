@@ -32,6 +32,7 @@ class Page extends Model implements HasMedia
         'title',
         'description',
         'text',
+        'featured',
         'created_at',
         'updated_at',
         'deleted_at',

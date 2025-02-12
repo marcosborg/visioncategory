@@ -379,6 +379,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('company-datas/destroy', 'CompanyDataController@massDestroy')->name('company-datas.massDestroy');
     Route::resource('company-datas', 'CompanyDataController');
 
+    // Service
+    Route::delete('services/destroy', 'ServiceController@massDestroy')->name('services.massDestroy');
+    Route::resource('services', 'ServiceController');
+
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

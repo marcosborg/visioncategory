@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('content')
 <div class="content">
-    @can('page_create')
+    @can('service_create')
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.pages.create') }}">
-                    {{ trans('global.add') }} {{ trans('cruds.page.title_singular') }}
+                <a class="btn btn-success" href="{{ route('admin.services.create') }}">
+                    {{ trans('global.add') }} {{ trans('cruds.service.title_singular') }}
                 </a>
             </div>
         </div>
@@ -14,30 +14,30 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('cruds.page.title_singular') }} {{ trans('global.list') }}
+                    {{ trans('cruds.service.title_singular') }} {{ trans('global.list') }}
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class=" table table-bordered table-striped table-hover datatable datatable-Page">
+                        <table class=" table table-bordered table-striped table-hover datatable datatable-Service">
                             <thead>
                                 <tr>
                                     <th width="10">
 
                                     </th>
                                     <th>
-                                        {{ trans('cruds.page.fields.id') }}
+                                        {{ trans('cruds.service.fields.id') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.page.fields.title') }}
+                                        {{ trans('cruds.service.fields.title') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.page.fields.description') }}
+                                        {{ trans('cruds.service.fields.text') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.page.fields.image') }}
+                                        {{ trans('cruds.service.fields.icon') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.page.fields.featured') }}
+                                        {{ trans('cruds.service.fields.link') }}
                                     </th>
                                     <th>
                                         &nbsp;
@@ -45,46 +45,41 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($pages as $key => $page)
-                                    <tr data-entry-id="{{ $page->id }}">
+                                @foreach($services as $key => $service)
+                                    <tr data-entry-id="{{ $service->id }}">
                                         <td>
 
                                         </td>
                                         <td>
-                                            {{ $page->id ?? '' }}
+                                            {{ $service->id ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $page->title ?? '' }}
+                                            {{ $service->title ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $page->description ?? '' }}
+                                            {{ $service->text ?? '' }}
                                         </td>
                                         <td>
-                                            @if($page->image)
-                                                <a href="{{ $page->image->getUrl() }}" target="_blank" style="display: inline-block">
-                                                    <img src="{{ $page->image->getUrl('thumb') }}">
-                                                </a>
-                                            @endif
+                                            {{ $service->icon ?? '' }}
                                         </td>
                                         <td>
-                                            <span style="display:none">{{ $page->featured ?? '' }}</span>
-                                            <input type="checkbox" disabled="disabled" {{ $page->featured ? 'checked' : '' }}>
+                                            {{ $service->link ?? '' }}
                                         </td>
                                         <td>
-                                            @can('page_show')
-                                                <a class="btn btn-xs btn-primary" href="{{ route('admin.pages.show', $page->id) }}">
+                                            @can('service_show')
+                                                <a class="btn btn-xs btn-primary" href="{{ route('admin.services.show', $service->id) }}">
                                                     {{ trans('global.view') }}
                                                 </a>
                                             @endcan
 
-                                            @can('page_edit')
-                                                <a class="btn btn-xs btn-info" href="{{ route('admin.pages.edit', $page->id) }}">
+                                            @can('service_edit')
+                                                <a class="btn btn-xs btn-info" href="{{ route('admin.services.edit', $service->id) }}">
                                                     {{ trans('global.edit') }}
                                                 </a>
                                             @endcan
 
-                                            @can('page_delete')
-                                                <form action="{{ route('admin.pages.destroy', $page->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                            @can('service_delete')
+                                                <form action="{{ route('admin.services.destroy', $service->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -112,11 +107,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('page_delete')
+@can('service_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.pages.massDestroy') }}",
+    url: "{{ route('admin.services.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -147,7 +142,7 @@
     order: [[ 1, 'desc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-Page:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-Service:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();

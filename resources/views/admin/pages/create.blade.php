@@ -44,6 +44,17 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.page.fields.text_helper') }}</span>
                         </div>
+                        <div class="form-group {{ $errors->has('featured') ? 'has-error' : '' }}">
+                            <div>
+                                <input type="hidden" name="featured" value="0">
+                                <input type="checkbox" name="featured" id="featured" value="1" {{ old('featured', 0) == 1 ? 'checked' : '' }}>
+                                <label for="featured" style="font-weight: 400">{{ trans('cruds.page.fields.featured') }}</label>
+                            </div>
+                            @if($errors->has('featured'))
+                                <span class="help-block" role="alert">{{ $errors->first('featured') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.page.fields.featured_helper') }}</span>
+                        </div>
                         <div class="form-group">
                             <button class="btn btn-danger" type="submit">
                                 {{ trans('global.save') }}
@@ -64,7 +75,7 @@
 <script>
     Dropzone.options.imageDropzone = {
     url: '{{ route('admin.pages.storeMedia') }}',
-    maxFilesize: 5, // MB
+    maxFilesize: 2, // MB
     acceptedFiles: '.jpeg,.jpg,.png,.gif',
     maxFiles: 1,
     addRemoveLinks: true,
@@ -72,7 +83,7 @@
       'X-CSRF-TOKEN': "{{ csrf_token() }}"
     },
     params: {
-      size: 5,
+      size: 2,
       width: 4096,
       height: 4096
     },
