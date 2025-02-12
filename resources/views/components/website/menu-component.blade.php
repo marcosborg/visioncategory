@@ -1,3 +1,7 @@
+@php
+    $pages = Page::all();
+    $last_page = $this->pages->pop();
+@endphp
 <div class="container">
     <div class="row">
         <div class="col-md-12">
