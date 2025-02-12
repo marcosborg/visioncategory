@@ -33,44 +33,7 @@
         <!-- header begin -->
         <header class="header-light scroll-light has-topbar">
             <x-website.topbar />
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="de-flex sm-pt10">
-                            <div class="de-flex-col">
-                                <div class="de-flex-col">
-                                    <!-- logo begin -->
-                                    <div id="logo">
-                                        <a href="index.html">
-                                            <img class="logo-1" src="/assets/website/images/logo-light.png" alt="">
-                                            <img class="logo-2" src="/assets/website/images/logo.png" alt="">
-                                        </a>
-                                    </div>
-                                    <!-- logo close -->
-                                </div>
-                            </div>
-                            <div class="de-flex-col header-col-mid">
-                                <ul id="mainmenu">
-                                    <li><a class="menu-item" href="index.html">Home</a></li>
-                                    <li><a class="menu-item" href="cars.html">Cars</a>
-                                        <ul>
-                                            <li><a class="menu-item" href="cars.html">Cars List 1</a></li>
-                                            <li><a class="menu-item" href="car-single.html">Cars Single</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="menu-item" href="about.html">About Us</a></li>
-                                </ul>
-                            </div>
-                            <div class="de-flex-col">
-                                <div class="menu_side_area">
-                                    <a href="contact.html" class="btn-main">Contact</a>
-                                    <span id="menu-btn"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <x-website.menu-component />
         </header>
         <!-- header close -->
         <!-- content begin -->

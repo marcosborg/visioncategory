@@ -7,6 +7,7 @@
 </div>
 
 <section id="section-img-with-tab" data-bgcolor="#f8f8f8">
+    @if ($page->image)
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5 offset-lg-7">
@@ -18,6 +19,14 @@
     </div>
     <div class="image-container col-md-6 pull-right" data-bgimage="url({{ $page->image ? $page->image->getUrl() : '/assets/website/images/background/5.jpg' }}) center">
     </div>
+    @else
+    <div class="container">
+        <p>{{ $page->description }}</p>
+                <div class="spacer-20"></div>
+                {!! $page->text !!}
+    </div>
+    @endif
+    
 </section>
 
 

@@ -1,3 +1,4 @@
+@if (App\Models\Car::all()->count() > 0)
 <section id="section-cars" class="no-top">
     <div class="container">
         <div class="row align-items-center">
@@ -32,3 +33,4 @@
         </div>
     </div>
 </section>
+@endif
