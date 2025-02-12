@@ -1,6 +1,6 @@
 @php
-    $pages = Page::all();
-    $last_page = $this->pages->pop();
+    $pages = \App\Models\Page::all();
+    $last_page = $pages->pop();
 @endphp
 <div class="container">
     <div class="row">
