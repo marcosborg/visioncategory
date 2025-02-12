@@ -1,7 +1,7 @@
 <section id="section-testimonials" class="no-top">
     <div class="container">
         <div class="row">
-            @foreach ($testimonials as $testimonial)
+            @foreach (\App\Models\Testimonial::all() as $testimonial)
             <div class="col-md-4">
                 <div class="de-image-text">
                     <div class="d-text">
