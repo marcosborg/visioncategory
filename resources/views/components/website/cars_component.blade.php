@@ -13,7 +13,7 @@
                 <div class="col-lg-12">
                     <div class="de-item mb30">
                         <div class="d-img">
-                            <img src="{{ $car->photo->getUrl() ?? 'https://placehold.co/1920x1080' }}" class="img-fluid" alt="">
+                            <img src="{{ $car->photo ? $car->photo->getUrl() : 'https://placehold.co/1920x1080' }}" class="img-fluid" alt="">
                         </div>
                         <div class="d-info">
                             <div class="d-text">
