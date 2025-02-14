@@ -8,6 +8,7 @@ Route::get('/', 'WebsiteController@index');
 
 Route::get('cms/{page_id}/{slug}', 'WebsiteController@cms');
 Route::get('legal/{legal_id}/{slug}', 'WebsiteController@legal');
+Route::get('rent/{car_id}/{slug}', 'WebsiteController@rent');
 
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 

@@ -20,7 +20,7 @@
                                 <h4>{{ $car->title ?? '' }}</h4>
                                 <div class="d-price">
                                     {{ $car->subtitle ?? '' }} <span>€{{ $car->price ?? '' }}</span>
-                                    <a class="btn-main" href="car-single.html">Ver</a>
+                                    <a class="btn-main" href="/rent/{{ $car->id }}/{{ Str::slug($car->title) }}">Saber mais</a>
                                 </div>
                             </div>
                         </div>
