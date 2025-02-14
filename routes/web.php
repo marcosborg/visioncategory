@@ -1,5 +1,9 @@
 <?php
 
+Route::get('down', function() {
+    Artisan::call('down');
+});
+
 Route::get('/', 'WebsiteController@index');
 
 Route::get('cms/{page_id}/{slug}', 'WebsiteController@cms');
