@@ -310,7 +310,7 @@
         </tr>
     </table>
     <footer>
-        ExpertCom ©
+        VisionCategory ©
         <?php echo date("Y");?>
     </footer>
 </body>

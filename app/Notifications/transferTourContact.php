@@ -44,7 +44,7 @@ class transferTourContact extends Notification
     {
         return (new MailMessage)
                     ->line('Existe um pedido de contacto em Transfer´s / Tour.')
-                    ->action('Ir para pedido', url('http://expertcom.pt/admin/admin/transfer-forms'))
+                    ->action('Ir para pedido', url('http://VisionCategory.pt/admin/admin/transfer-forms'))
                     ->line('Nome: ' . $this->TransferForm->name)
                     ->line('Email: ' . $this->TransferForm->email)
                     ->line('Telefone: ' . $this->TransferForm->phone);

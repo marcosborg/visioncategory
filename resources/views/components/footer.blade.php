@@ -9,7 +9,7 @@
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>ExpertCom</h5>
+                <h5>VisionCategory</h5>
                 <ul>
                     @foreach (App\Models\Page::all() as $page)
                     <li><a href="/pagina/{{ $page->id }}/{{ Illuminate\Support\Str::slug($page->title, '-') }}">{{
@@ -35,15 +35,15 @@
         </div>
     </div>
     <div class="footer-copyright">
-        <p>© {{ date('Y') }} Copyright ExpertCom</p>
+        <p>© {{ date('Y') }} Copyright VisionCategory</p>
     </div>
 </footer>
 
 <div id="social-floating-button">
-    <a target="_blank" href="https://www.facebook.com/expertcom">
+    <a target="_blank" href="https://www.facebook.com/VisionCategory">
         <i class="fa-brands fa-facebook-f"></i>
     </a>
-    <a target="_blank" href="https://www.instagram.com/expertcom/">
+    <a target="_blank" href="https://www.instagram.com/VisionCategory/">
         <i class="fa-brands fa-instagram"></i>
     </a>
 </div>
