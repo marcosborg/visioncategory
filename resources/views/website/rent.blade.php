@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="de-price text-center">
-                            Por dia
+                            Por semana
                             <h3>€{{ $car->price }}</h3>
                         </div>
                         <div class="spacer-30"></div>
