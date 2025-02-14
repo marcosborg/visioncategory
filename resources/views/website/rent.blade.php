@@ -26,11 +26,11 @@
                         </div>
                         <div class="spacer-30"></div>
                         <div class="de-box mb25">
-                            <form name="contactForm" method="post">
+                            <form action="/forms/rent" method="post" id="rent">
+                                @csrf
+                                <input type="hidden" name="car_id" value="{{ $car->id }}">
                                 <h4>Pedido de contacto</h4>
-
                                 <div class="spacer-20"></div>
-
                                 <div class="row">
                                     <div class="col-lg-12 mb20">
                                         <h5>Nome *</h5>
@@ -45,10 +45,37 @@
                                         <input type="email" name="email" placeholder="" class="form-control" required>
                                     </div>
                                     <div class="col-lg-12 mb20">
+                                        <h5>Cidade *</h5>
+                                        <input type="text" name="city" placeholder="" class="form-control" required>
+                                    </div>
+                                    <div class="col-lg-12 mb20">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input type="hidden" name="tvde" value="0">
+                                                    <input class="form-check-input" type="checkbox" value="1" id="tvde" name="tvde" style="border: solid 1px #999;">
+                                                    <label class="form-check-label" for="tvde">
+                                                        Tem cartão TVDE?
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="tvde_card" placeholder="Indique o n.º" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 mb20">
                                         <h5>Mensagem</h5>
                                         <textarea name="message" placeholder="" class="form-control"></textarea>
                                     </div>
-
+                                    <div class="col-lg-12 mb20">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="1" id="rgpd" name="rgpd" style="border: solid 1px #999;" required>
+                                            <label class="form-check-label" for="rgpd">
+                                                Autorizo o tratamento dos dados fornecidos
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <input type='submit' id='send_message' value='Pedir contacto' class="btn-main btn-fullwidth">
                                 <div class="clearfix"></div>
@@ -63,4 +90,40 @@
     </div>
 </section>
 
+@endsection
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://malsup.github.io/jquery.form.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#rent').ajaxForm({
+            beforeSubmit: function() {
+                $.LoadingOverlay('show');
+            }
+            , success: function(resp) {
+                $.LoadingOverlay('hide');
+                Swal.fire({
+                    title: "Enviado com sucesso!"
+                    , text: "Vamos contactar brevemente!"
+                    , icon: "success"
+                }).then(() => {
+                    window.location.reload();
+                });
+            }
+            , error: function(err) {
+                console.log(err);
+                $.LoadingOverlay('hide');
+                Swal.fire({
+                    title: "Erro no envio!"
+                    , text: "Tente visioncategory@gmail.com"
+                    , icon: "danger"
+                }).then(() => {
+                    window.location.reload();
+                });
+            }
+        });
+    });
+
+</script>
 @endsection

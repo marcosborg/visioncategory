@@ -55,7 +55,7 @@
     ================================================== -->
     <script src="/assets/website/js/plugins.js"></script>
     <script src="/assets/website/js/designesia.js"></script>
-
+    @yield('scripts')
 </body>
 
 </html>

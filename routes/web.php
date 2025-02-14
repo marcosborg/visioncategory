@@ -10,6 +10,10 @@ Route::get('cms/{page_id}/{slug}', 'WebsiteController@cms');
 Route::get('legal/{legal_id}/{slug}', 'WebsiteController@legal');
 Route::get('rent/{car_id}/{slug}', 'WebsiteController@rent');
 
+Route::prefix('forms')->group(function() {
+    Route::post('rent', 'WebsiteController@formRent');
+});
+
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 
 Auth::routes(['register' => false]);
